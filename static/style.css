@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.login-box {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 15px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.game-container {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#gameCanvas {
+    border: 3px solid #fff;
+    border-radius: 20px;
+    background: #2c3e50;
+}
+
+.btn-primary {
+    padding: 15px 30px;
+    background: #00d4aa;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.player {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.2);
+    margin: 5px;
+    border-radius: 20px;
+}

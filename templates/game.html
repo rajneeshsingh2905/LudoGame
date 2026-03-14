@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ludo Game - {{ game_id }}</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h2>🎲 Ludo Game: {{ game_id }}</h2>
+            <div id="players-list">
+                {% for player in game.players %}
+                <span class="player">{{ player }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        <canvas id="gameCanvas" width="600" height="600"></canvas>
+        <div class="game-controls">
+            <button id="rollBtn" onclick="rollDice()">🎲 Roll Dice</button>
+            <div id="diceResult"></div>
+        </div>
+    </div>
+    <script>
+        const gameId = "{{ game_id }}";
+        const socket = io();
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        socket.emit('join', {game_id: gameId, username: "{{ current_user.username }}"});
+
+        socket.on('status', (data) => {
+            alert(data.msg);
+        });
+
+        socket.on('start_game', (data) => {
+            console.log('Game started!', data.players);
+            initGame(data.players);
+        });
+    </script>
+</body>
+</html>
